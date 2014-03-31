@@ -1,14 +1,9 @@
 /*
-NOTE: The Trello client library has been included as a Managed Resource.  To include the client library in your own code, you would include jQuery and then
 
-<script src="https://api.trello.com/1/client.js?key=your_application_key">...
+Gets a list of cards based on the example from Trello.
 
-See https://trello.com/docs for a list of available API URLs
-
-The API development board is at https://trello.com/api
-
-The &dummy=.js part of the managed resource URL is required per http://doc.jsfiddle.net/basic/introduction.html#add-resources
 */
+
 
 var onAuthorize = function() {
     updateLoggedIn();
@@ -33,6 +28,7 @@ var getCards = function() {
   // Output a list of all of the cards that the member
   // is assigned to
   Trello.get("members/me/cards", function(cards) {
+      console.log(cards);
       $cards.empty();
       $.each(cards, function(ix, card) {
           $("<a>")
